@@ -1,1 +1,123 @@
 
+# ====== Generic usage instructions ======
+# Replace placeholders in braces {like this} with concrete values before sending to Gemini:
+#   {area} = "6825 sq ft" or "634 sq m"
+#   {floors} = 3
+#   {style} = "Modern Minimal" | "Contemporary" | "Luxury" | "Eco-friendly"
+#   {project_type} = "Mixed-use (commercial ground & 1st, residential 2nd)"
+#   {features} = "double-height showroom, lift, parking, rooftop garden, rainwater harvesting"
+# Recommended aspect ratio for profile/thumbnail: 1:1
+# Recommended aspect ratio for building renders: 16:9 or 3:2 (landscape)
+# Use: "ultra-detailed, photorealistic, cinematic lighting" for high realism
+# Add "no text, no watermark, no logos" to the prompt if you want clean images.
+
+=======================================================================
+PROMPT 1 — Cinematic Exterior (Night) — Holographic, Photoreal
+=======================================================================
+Prompt:
+"Photorealistic cinematic 3D exterior of a {project_type} building on a north-facing urban plot of {area}, {floors} floors,
+designed in {style} style. Show the street-facing commercial glass facade on ground & first floor and textured concrete + timber louvers on the second floor.
+Include a holographic police-style torch glow in the street scene for dramatic lighting (if desired).
+Emphasize realistic materials (glass reflections, subtle wet pavement reflections, warm interior light), soft moonlight, and atmospheric mist.
+Add floating translucent overlays showing floor labels, program tags (Showroom, Bank, 3BHK, 2BHK), and glowing wayfinding icons.
+High-resolution, ultra-detailed, cinematic dusk scene, 3:2 aspect ratio, no text, no watermark."
+
+=======================================================================
+PROMPT 2 — Aerial / Site-Plan View (Day) — Contextual Masterplan
+=======================================================================
+Prompt:
+"A high-resolution aerial perspective of a {area} urban plot with the proposed {project_type} building, {floors} floors, in {style} style.
+Visualize site boundaries (approx. {area}), front street, visitor parking, rear delivery access, rooftop garden and solar panels.
+Render surrounding context (adjacent sidewalks and trees) lightly so the building reads clearly; annotate with subtle holographic overlays showing circulation arrows (pedestrian, vehicle) and entry points.
+Photorealistic daytime lighting, crisp shadows, 16:9 aspect ratio, no logos, ultra-detailed."
+
+=======================================================================
+PROMPT 3 — 2D Floorplan (Top View) — Clean Architectural Drawing
+=======================================================================
+Prompt:
+"Clean 2D architectural floorplan top-view for the {floor_label} of a {project_type} building on a {area} plot ({floors} total floors).
+Show walls, doors, windows, staircase, lift, primary furniture blocks (living/dining/kitchen, teller counters for bank, showroom display zones), dimensions notated approximately, and labelled rooms (Showroom, Lobby, Bank, Office, Flat A - 3BHK, Flat B - 2BHK).
+Style: architectural line drawing with light textures, monochrome with light blue accents for circulation and hatch for service areas. Export-ready, high resolution, no watermark."
+
+=======================================================================
+PROMPT 4 — 3D Cutaway / Exploded View — Structure + Program
+=======================================================================
+Prompt:
+"Highly detailed 3D cutaway/exploded view of the {project_type} building across {floors} floors showing each floor plate separated slightly for clarity.
+Expose vertical circulation (stair, lift), parking, showroom volumes (double-height if applicable), and residential flats on upper floors.
+Color-code program: commercial zones blue, residential zones warm beige, service cores grey. Add subtle holographic labels floating next to each zone.
+Photorealistic materials, soft studio lighting, 3:2 aspect ratio."
+
+=======================================================================
+PROMPT 5 — Interior: Showroom (Ground Floor) — Product-focused
+=======================================================================
+Prompt:
+"Interior photorealistic render of the ground-floor showroom with double-height ceiling (if specified).
+Material palette: polished concrete floor, minimal track lighting, sleek display plinths, large storefront glazing showing street life.
+Add a subtle holographic info panel floating near the display showing 'Showroom - area approx {approx_area_per_floor}'.
+Cinematic composition, high detail, realistic light reflections, no people or faces (or add mannequin-like silhouettes), 16:9."
+
+=======================================================================
+PROMPT 6 — Interior: Residential Living Room (2nd Floor) — Cozy Daylight
+=======================================================================
+Prompt:
+"Warm, photorealistic interior of a 3 BHK living room from Flat A on the second floor with balcony and morning light coming from the east.
+Modern modular furniture, integrated storage, soft wood finishes, indoor plants on balcony, functional layout visible.
+Include a faint holographic overlay showing room name and suggested furniture layout. High detail, 3:2 aspect ratio."
+
+=======================================================================
+PROMPT 7 — Material & Detail Close-up — Sustainable Options
+=======================================================================
+Prompt:
+"Close-up photorealistic study of material finishes proposed for the building: textured exposed concrete panel, timber vertical louvers, energy glass,
+and rooftop solar panel mounting detail. Include rainwater harvesting inlet detail and green roof planting box. Clean studio lighting, ultra-detailed macro render."
+
+=======================================================================
+PROMPT 8 — Holographic Presentation / Repo Badge (For README)
+=======================================================================
+Prompt:
+"A polished holographic presentation image for a GitHub repo titled '{repo_name}'. Show a floating 3D miniature of the {project_type} building with translucent panels displaying code snippets, floorplan thumbnails, and KPI cards (area, floors, units).
+Style: neon holographic UI, techy, professional, dark background, 1:1 or 3:2 for README banner. No text, no watermark."
+
+=======================================================================
+PROMPT 9 — Nighttime Safety Visualization (Police Torch / Hologram Influence)
+=======================================================================
+Prompt:
+"Night scene by riverbank or park adjacent to the proposed building showing a holographic police-like patrol figure with torchlight illuminating the path and the building facade.
+Render how the torchlight and hologram presence increases perceived safety for pedestrians; include visual cues such as brighter path, fewer shadowed spots, and floating safety icons.
+Cinematic, photorealistic, high detail, 16:9 aspect ratio."
+
+=======================================================================
+PROMPT 10 — Low-Res Wireframe / Concept Sketch (Fast Iteration)
+=======================================================================
+Prompt:
+"A rapid wireframe concept sketch of the building massing and floor plan in sketch/ink style for quick iteration.
+Show massing blocks, openings, stairs, and rough program blocks. Minimal shading, high-contrast, great for concept review. 16:9."
+
+# ====== Negative prompts (add to reduce unwanted artifacts) ======
+# "no watermark, no text, no logos, no signature, no brand names, avoid overly stylized cartoon, avoid photoreal faces"
+
+# ====== Suggested Gemini settings ======
+# - Mode: Gemini 2.5 Flash Image (Imagen / Flash)
+# - Aspect ratio: use 1:1 for thumbnails, 16:9 or 3:2 for building renders
+# - Quality / steps: high quality / 1000+ tokens or high detail setting (depends on provider)
+# - Variations: request 2–4 variations per prompt, pick the best and upscale if available
+# - Guidance: "ultra-detailed, photorealistic, cinematic lighting, natural materials" (append to prompt)
+# - If using user photo for conditioned renders: include "use provided photo as person subject" and ensure consent
+
+# ====== How to use (quick) ======
+# 1) Replace placeholders (e.g., {area}, {floors}, {style}, {repo_name}) with values.
+# 2) Paste into Gemini 2.5 Flash Image prompt field (Gemini app or provider UI).
+# 3) Set aspect ratio & quality, generate 2–4 variants.
+# 4) For README/banner: use PROMPT 8 with {repo_name}.
+# 5) Save images into your repo under /assets or /examples for display in README.
+
+# ====== Example filled prompt (copy-paste ready) ======
+# (EXTERIOR NIGHT) — example using your earlier data:
+# "Photorealistic cinematic 3D exterior of a Mixed-use (commercial ground & 1st, residential 2nd) building on a north-facing urban plot of 6825 sq ft, 3 floors, designed in Modern Minimal style. Show the street-facing commercial glass facade on ground & first floor and textured concrete + timber louvers on the second floor. Include rooftop solar panels and a rooftop garden. Emphasize realistic materials (glass reflections, subtle wet pavement reflections, warm interior light), soft moonlight, and atmospheric mist. Add floating translucent overlays showing floor labels, program tags (Showroom, Bank, 3BHK, 2BHK), and glowing wayfinding icons. High-resolution, ultra-detailed, cinematic dusk scene, 3:2 aspect ratio, no text, no watermark."
+
+# ====== Licensing & Safety ======
+# - Do not request copyrighted logos, trademarked facades, or identifiable celebrities.
+# - If conditioning on a person's photo, ensure the person has given explicit consent.
+# - Check the image provider's terms for commercial use if you plan to monetize images.
+
