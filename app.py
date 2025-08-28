@@ -1,5 +1,9 @@
 # app.py
 import streamlit as st
+# app.py
+from modules.cost_estimator import estimate_cost
+from modules.generator import generate_layout
+
 from cost_estimator import estimate_cost
 from generator import generate_layout
 from optimizer import optimize_layout
