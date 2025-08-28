@@ -1,14 +1,14 @@
 # app.py
-import streamlit as st
 # app.py
-from modules.cost_estimator import estimate_cost
-from modules.generator import generate_layout
-
-
-from optimizer import optimize_layout
-from visualizer_2d import visualize_2d
-# For 3D visualization in Streamlit we can use plotly directly
+import streamlit as st
+from engine.cost_estimator import estimate_cost
+from engine.generator import generate_layout
+from engine.optimizer import optimize_layout
+from engine.visualizer_2d import visualize_2d
+from engine.visualizer_3d import visualize_3d  # Optional for direct import
 import plotly.graph_objects as go
+
+
 
 st.title("🏗 Construction Designer")
 
