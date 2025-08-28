@@ -1,26 +1,42 @@
+# app.py
 import streamlit as st
-from engine.generator import generate_layout
-from engine.visualizer_2d import plot_2d_layout
-from engine.visualizer_3d import plot_3d_layout
-from engine.cost_estimator import estimate_cost
-from components.ui_inputs import user_input_form
+from cost_estimator import estimate_cost
+from generator import generate_layout
+from optimizer import optimize_layout
+from visualizer_2d import visualize_2d
+# For 3D visualization in Streamlit we can use plotly directly
+import plotly.graph_objects as go
 
-st.set_page_config(page_title="AI Layout Generator", layout="wide")
+st.title("🏗 Construction Designer")
 
-st.title("🏢 AI-Powered Real Estate Layout Generator")
+area = st.number_input("Enter total plot area (sqft)", min_value=100, value=1000)
+unit_type = st.selectbox("Unit type", ["residential", "commercial"])
+floors = st.slider("Number of floors", 1, 5, 1)
+finish = st.selectbox("Finish level", ["standard", "luxury"])
 
-# Step 1: Get user inputs
-user_inputs = user_input_form()
+# Estimate cost
+cost = estimate_cost(area, unit_type, finish)
+st.write("💰 Estimated Cost:", cost["estimated_cost"])
 
-if st.button("Generate Layout"):
-    layout = generate_layout(user_inputs)
-    
-    st.subheader("📐 2D Floor Plan")
-    st.pyplot(plot_2d_layout(layout))
+# Generate layout
+layout = generate_layout(area, floors, unit_type)
+optimized_layout = optimize_layout(layout)
 
-    st.subheader("🏗️ 3D Visualization")
-    plot_3d_layout(layout)
+st.write("📐 Layout Details:", optimized_layout)
 
-    st.subheader("💰 Estimated Cost")
-    st.write(estimate_cost(layout))
+# 2D Visualization
+st.subheader("2D Layout")
+st.pyplot(visualizer_2d.visualize_2d(optimized_layout))
+
+# 3D Visualization
+st.subheader("3D Layout")
+fig = go.Figure()
+for i, room in enumerate(optimized_layout["rooms"]):
+    fig.add_trace(go.Bar3d(
+        x=[i], y=[0], z=[0],
+        dx=[1], dy=[1], dz=[len(room["name"])*2],
+        name=room["name"]
+    ))
+fig.update_layout(title="3D Layout")
+st.plotly_chart(fig)
 
