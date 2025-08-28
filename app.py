@@ -4,8 +4,7 @@ import streamlit as st
 from modules.cost_estimator import estimate_cost
 from modules.generator import generate_layout
 
-from cost_estimator import estimate_cost
-from generator import generate_layout
+
 from optimizer import optimize_layout
 from visualizer_2d import visualize_2d
 # For 3D visualization in Streamlit we can use plotly directly
